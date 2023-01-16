@@ -74,6 +74,9 @@ class build_ext_options:
                 self.compiler.compiler_type, LINK_OPTIONS["other"]
             )
 
+        if hasattr(self.compiler, "dll_libraries"):
+            self.compiler.dll_libraries = []
+
 
 class build_ext_subclass(build_ext, build_ext_options):
     def build_extensions(self):
